@@ -135,7 +135,7 @@
     <header class="sticky top-0 z-30 border-b border-slate-200/80 dark:border-slate-800/90 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-2">
             <!-- Brand & Connection Status -->
-            <div class="flex items-center gap-3 min-w-0">
+            <div class="flex items-center gap-2.5 sm:gap-3 min-w-0">
                 <div class="w-10 h-10 rounded-2xl shrink-0 shadow-sm overflow-hidden flex items-center justify-center">
                     <!-- Matching Inline SVG App Logo -->
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="w-10 h-10">
@@ -155,7 +155,7 @@
                         <path d="M93 31l5-6 5 6" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </div>
-                <div class="min-w-0">
+                <div class="hidden sm:block min-w-0">
                     <h1 class="text-sm sm:text-base font-bold text-slate-900 dark:text-white truncate">บันทึกรายรับ-รายจ่าย</h1>
                     <div class="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400 truncate">
                         <span id="sync-dot" class="w-2 h-2 rounded-full bg-amber-400 shrink-0"></span>
@@ -246,9 +246,9 @@
             <!-- Net Balance -->
             <div class="col-span-2 lg:col-span-1 rounded-2xl border border-indigo-200/70 dark:border-indigo-500/30 bg-gradient-to-br from-indigo-600 to-slate-900 dark:from-indigo-950 dark:via-slate-900 dark:to-slate-900 text-white p-5 shadow-md relative overflow-hidden">
                 <div class="flex items-start justify-between gap-2 relative z-10">
-                    <div class="min-w-0">
+                    <div class="min-w-0 flex-1">
                         <p class="text-xs sm:text-sm font-medium text-indigo-100/80">ยอดคงเหลือสุทธิ</p>
-                        <p id="card-balance" class="text-2xl sm:text-3xl font-bold mt-1 tracking-tight">฿0.00</p>
+                        <p id="card-balance" class="text-2xl sm:text-3xl font-bold mt-1 tracking-tight tabular-nums break-words">฿0.00</p>
                         <p class="text-[11px] sm:text-xs text-indigo-200/85 mt-1.5 flex items-center gap-1.5">
                             <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
                             <span>ยอดคงเหลือสะสมทั้งหมด (ไม่ตัดยอด)</span>
@@ -265,31 +265,27 @@
             </div>
 
             <!-- Total Income -->
-            <div class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4 sm:p-5 shadow-sm">
-                <div class="flex items-start justify-between gap-2">
-                    <div class="min-w-0">
-                        <p class="text-xs sm:text-sm font-medium text-slate-500 dark:text-slate-400">รายรับรวม</p>
-                        <p id="card-income" class="text-lg sm:text-2xl font-bold text-emerald-600 dark:text-emerald-400 mt-1 truncate">+฿0.00</p>
-                        <p id="card-income-count" class="text-xs text-slate-400 dark:text-slate-500 mt-1.5">0 รายการ</p>
-                    </div>
-                    <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
-                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+            <div class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-3.5 sm:p-5 shadow-sm flex flex-col justify-between">
+                <div class="flex items-center justify-between gap-2">
+                    <p class="text-xs sm:text-sm font-medium text-slate-500 dark:text-slate-400">รายรับรวม</p>
+                    <div class="w-7 h-7 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
+                        <svg class="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
                     </div>
                 </div>
+                <p id="card-income" class="text-base sm:text-2xl font-bold text-emerald-600 dark:text-emerald-400 mt-2 tabular-nums leading-tight break-words">+฿0.00</p>
+                <p id="card-income-count" class="text-xs text-slate-400 dark:text-slate-500 mt-1.5">0 รายการ</p>
             </div>
 
             <!-- Total Expense -->
-            <div class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4 sm:p-5 shadow-sm">
-                <div class="flex items-start justify-between gap-2">
-                    <div class="min-w-0">
-                        <p class="text-xs sm:text-sm font-medium text-slate-500 dark:text-slate-400">รายจ่ายรวม</p>
-                        <p id="card-expense" class="text-lg sm:text-2xl font-bold text-rose-600 dark:text-rose-400 mt-1 truncate">-฿0.00</p>
-                        <p id="card-expense-count" class="text-xs text-slate-400 dark:text-slate-500 mt-1.5">0 รายการ</p>
-                    </div>
-                    <div class="w-10 h-10 rounded-xl bg-rose-500/10 text-rose-600 dark:text-rose-400 flex items-center justify-center shrink-0">
-                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 17 13.5 8.5 8.5 13.5 2 7"/><polyline points="16 17 22 17 22 11"/></svg>
+            <div class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-3.5 sm:p-5 shadow-sm flex flex-col justify-between">
+                <div class="flex items-center justify-between gap-2">
+                    <p class="text-xs sm:text-sm font-medium text-slate-500 dark:text-slate-400">รายจ่ายรวม</p>
+                    <div class="w-7 h-7 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl bg-rose-500/10 text-rose-600 dark:text-rose-400 flex items-center justify-center shrink-0">
+                        <svg class="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 17 13.5 8.5 8.5 13.5 2 7"/><polyline points="16 17 22 17 22 11"/></svg>
                     </div>
                 </div>
+                <p id="card-expense" class="text-base sm:text-2xl font-bold text-rose-600 dark:text-rose-400 mt-2 tabular-nums leading-tight break-words">-฿0.00</p>
+                <p id="card-expense-count" class="text-xs text-slate-400 dark:text-slate-500 mt-1.5">0 รายการ</p>
             </div>
         </section>
 
